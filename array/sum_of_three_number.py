@@ -15,8 +15,10 @@
 ]
 
 """
+
+
 class Solution():
-    def threeSum(self, nums):
+    def three_sum(self, nums):
         res = []
         nums.sort()
         for i in range(0, len(nums)):

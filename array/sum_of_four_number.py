@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*- 
 # @Author : yunze
 
-# 第一次上传1
-
 
 class Solution():
     def fourSum(self, nums,target):

@@ -5,23 +5,23 @@
 
 
 class Solution():
-    def threeSum(self, nums):
+    def fourSum(self, nums,target):
         res = []
         nums.sort()
         for i in range(0, len(nums) - 3):
-            if i > 0 and nums[i] == nums[i - 1]:
+            if i > 0 and nums[i] == nums[i-1]:
                 continue
-            for j in range(i, len(nums) - 2):
-                if j > 0 and nums[j] == nums[j - 1]:
+            for j in range(i+1, len(nums) - 2):
+                if j >i+1 and nums[j] == nums[j - 1]:
                     continue
-                target = 0 - nums[i] - nums[j]
-                start, end = i + 1, len(nums) - 1
+                start, end = j + 1, len(nums) - 1
                 while start < end:
+                    all = nums[start]+nums[end]+nums[i]+nums[j]
                     # 第一种情况
-                    if nums[start] + nums[end] > target:
+                    if all > target:
                         end -= 1
                     # 第二种情况
-                    elif nums[start] + nums[end] < target:
+                    elif all < target :
                         start += 1
                     else:
                         res.append((nums[i], nums[j], nums[start], nums[end]))

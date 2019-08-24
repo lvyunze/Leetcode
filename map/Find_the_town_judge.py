@@ -34,15 +34,18 @@
 输出：3
 """
 
+
 class Solution:
     def findJudge(self, N: int, trust: List[List[int]]) -> int:
-        if N == 1:
+        if N==1:
             return 1
-        d = collections.defaultdict(int)      # 统计入度数
-        for i, j in trust:
-            d[i] -= 1
-            d[j] += 1
+        d=collections.defaultdict(int)      #统计入度数
+        for i,j in trust:
+           # 用一个列表res记录每个人被别人信任的个数，如果某个人信任别人，则在信任个数上减1，
+           # 如果别人信任自己，就信任个数上加1
+            d[i]-=1     #存在出度就减成无效数据
+            d[j]+=1
         for i in d:
-            if d[i] == N-1:
+            if d[i]==N-1:
                 return i
         return -1
